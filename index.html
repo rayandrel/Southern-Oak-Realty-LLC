@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Southern Oak Realty LLC — Financial & Tax Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oak: #2C1810;
+    --bark: #5C3D2E;
+    --moss: #3D5A3E;
+    --sage: #7A9E7E;
+    --cream: #F5F0E8;
+    --parchment: #EDE5D4;
+    --gold: #C9A84C;
+    --rust: #B5451B;
+    --mist: #D4DCDA;
+    --ink: #1A1A1A;
+    --shadow: rgba(44,24,16,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--oak);
+    color: var(--cream);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    box-shadow: 0 2px 12px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .logo-text span {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+  .header-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .btn {
+    padding: 7px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--oak);
+  }
+  .btn-gold:hover { background: #d4b05a; }
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(245,240,232,0.4);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .btn-moss {
+    background: var(--moss);
+    color: white;
+  }
+  .btn-moss:hover { background: #2e4530; }
+  .btn-danger {
+    background: var(--rust);
+    color: white;
+  }
+
+  /* ── NAV TABS ── */
+  nav {
+    background: var(--bark);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    border-bottom: 3px solid var(--gold);
+  }
+  .nav-tab {
+    padding: 12px 20px;
+    color: rgba(245,240,232,0.7);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: all 0.2s;
+  }
+  .nav-tab:hover { color: var(--cream); background: rgba(255,255,255,0.05); }
+  .nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(201,168,76,0.1); }
+
+  /* ── LAYOUT ── */
+  .page { display: none; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+  .page.active { display: block; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--parchment);
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--oak);
+  }
+  .section-header p {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 2px;
+  }
+
+  /* ── INSTRUCTION BOX ── */
+  .instruction-box {
+    background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  .instruction-box strong { color: var(--oak); }
+  .instruction-box ul { margin: 6px 0 0 1.2rem; }
+  .instruction-box li { margin: 3px 0; }
+
+  /* ── CARDS / PANELS ── */
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--oak);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--parchment);
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  @media(max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+
+  /* ── FORM ELEMENTS ── */
+  .form-group { margin-bottom: 1rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink);
+    background: white;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--moss);
+    box-shadow: 0 0 0 3px rgba(61,90,62,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 70px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+
+  /* ── STAT CARDS ── */
+  .stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px var(--shadow);
+    border-top: 3px solid var(--moss);
+  }
+  .stat-card.gold { border-top-color: var(--gold); }
+  .stat-card.rust { border-top-color: var(--rust); }
+  .stat-card.bark { border-top-color: var(--bark); }
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .stat-value {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--oak);
+  }
+  .stat-sub { font-size: 0.78rem; color: #999; margin-top: 2px; }
+
+  /* ── TABLE ── */
+  .table-wrapper { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  thead tr {
+    background: var(--oak);
+    color: var(--cream);
+  }
+  thead th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+  tbody tr { border-bottom: 1px solid #eee; }
+  tbody tr:hover { background: #faf8f4; }
+  tbody td { padding: 9px 12px; }
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .badge-green { background: #d4edda; color: #155724; }
+  .badge-red { background: #f8d7da; color: #721c24; }
+  .badge-gold { background: #fff3cd; color: #856404; }
+  .badge-blue { background: #d1ecf1; color: #0c5460; }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    header, nav, .no-print { display: none !important; }
+    .page { display: block !important; padding: 0; max-width: 100%; }
+    .page:not(.active) { display: none !important; }
+    body { background: white; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    .print-header { display: block !important; }
+    .stat-card { break-inside: avoid; }
+  }
+  .print-header {
+    display: none;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--oak);
+  }
+
+  /* ── TAX RATE DISPLAY ── */
+  .tax-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e0ddd5;
+    font-size: 0.9rem;
+  }
+  .tax-line:last-child { border-bottom: none; }
+  .tax-line .tl-label { color: #555; }
+  .tax-line .tl-value {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--oak);
+  }
+  .tax-total {
+    background: var(--oak);
+    color: var(--cream);
+    padding: 10px 14px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    margin-top: 10px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* ── DEPRECIATION TABLE ── */
+  .depr-row { font-size: 0.85rem; }
+
+  /* ── ALERTS ── */
+  .alert {
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+  .alert-warn { background: #fff3cd; border-left: 4px solid var(--gold); color: #6b4c00; }
+  .alert-info { background: #d1ecf1; border-left: 4px solid #0c5460; color: #0c5460; }
+  .alert-success { background: #d4edda; border-left: 4px solid var(--moss); color: #155724; }
+
+  /* ── TOOLTIP ── */
+  .tooltip-icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    background: var(--moss);
+    color: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    cursor: help;
+    margin-left: 5px;
+    position: relative;
+  }
+  .tooltip-icon::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    white-space: nowrap;
+    max-width: 240px;
+    white-space: normal;
+    width: 200px;
+    display: none;
+    z-index: 999;
+    line-height: 1.4;
+  }
+  .tooltip-icon:hover::after { display: block; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar {
+    height: 6px;
+    background: #e8e0d0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--moss);
+    transition: width 0.5s ease;
+  }
+
+  /* ── MISC ── */
+  .divider { border: none; border-top: 1px solid var(--parchment); margin: 1.25rem 0; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+  .monospace { font-family: 'Courier Prime', monospace; }
+  .color-green { color: #155724; }
+  .color-red { color: var(--rust); }
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .flex-end { display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🌳</div>
+    <div class="logo-text">
+      <h1>Southern Oak Realty LLC</h1>
+      <span>Rental Property Financial Manager</span>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button class="btn btn-outline no-print" onclick="printReport()">🖨 Print Report</button>
+    <button class="btn btn-gold no-print" onclick="saveData()">💾 Save Data</button>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-tab active" onclick="showPage('dashboard')">📊 Dashboard</div>
+  <div class="nav-tab" onclick="showPage('properties')">🏠 Properties</div>
+  <div class="nav-tab" onclick="showPage('income')">💵 Income</div>
+  <div class="nav-tab" onclick="showPage('expenses')">📋 Expenses</div>
+  <div class="nav-tab" onclick="showPage('refurb')">🔨 Refurbishment</div>
+  <div class="nav-tab" onclick="showPage('depreciation')">📉 Depreciation</div>
+  <div class="nav-tab" onclick="showPage('taxes')">🧾 Tax Estimator</div>
+  <div class="nav-tab" onclick="showPage('reports')">📄 Reports</div>
+  <div class="nav-tab" onclick="showPage('setup')">⚙️ LLC Setup</div>
+</nav>
+
+<!-- ═══════════════════════════════════ DASHBOARD ═══════════════════════════════════ -->
+<div id="page-dashboard" class="page active">
+  <div class="print-header">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--oak)">Southern Oak Realty LLC</h2>
+    <p>Financial Dashboard Report — <span id="dash-print-date"></span></p>
+  </div>
+
+  <div class="section-header">
+    <div>
+      <h2>Financial Dashboard</h2>
+      <p id="dash-year-label">Tax Year Overview</p>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <label style="font-size:0.8rem;font-weight:600;color:#666;">Tax Year:</label>
+      <select id="dashboard-year" onchange="updateDashboard()" style="padding:6px 10px;border:1.5px solid #ddd;border-radius:4px;font-size:0.9rem;">
+      </select>
+    </div>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 Getting Started:</strong> Begin by adding your properties under the <em>Properties</em> tab, then log rental income under <em>Income</em> and operating costs under <em>Expenses</em>. The dashboard auto-calculates your net operating income, estimated taxes, and key metrics. Use <em>Refurbishment</em> to track capital improvements separately from repairs (important for depreciation).
+  </div>
+
+  <div class="grid-4" id="stat-cards">
+    <div class="stat-card gold">
+      <div class="stat-label">Gross Rental Income</div>
+      <div class="stat-value" id="stat-gross">$0</div>
+      <div class="stat-sub">Year to date</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Expenses</div>
+      <div class="stat-value" id="stat-exp">$0</div>
+      <div class="stat-sub">Operating + Repairs</div>
+    </div>
+    <div class="stat-card bark">
+      <div class="stat-label">Net Operating Income</div>
+      <div class="stat-value" id="stat-noi">$0</div>
+      <div class="stat-sub">Before depreciation</div>
+    </div>
+    <div class="stat-card rust">
+      <div class="stat-label">Est. Tax Liability</div>
+      <div class="stat-value" id="stat-tax">$0</div>
+      <div class="stat-sub">Federal + State (est.)</div>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-2">
+    <div class="card">
+      <h3>Portfolio Summary</h3>
+      <div class="tax-line"><span class="tl-label">Total Properties</span><span class="tl-value" id="d-props">0</span></div>
+      <div class="tax-line"><span class="tl-label">Occupied Units</span><span class="tl-value" id="d-occ">0</span></div>
+      <div class="tax-line"><span class="tl-label">Vacancy Rate</span><span class="tl-value" id="d-vac">0%</span></div>
+      <div class="tax-line"><span class="tl-label">Total Depreciation (YTD)</span><span class="tl-value" id="d-depr">$0</span></div>
+      <div class="tax-line"><span class="tl-label">Taxable Net Income</span><span class="tl-value" id="d-taxable">$0</span></div>
+    </div>
+    <div class="card">
+      <h3>Expense Breakdown</h3>
+      <div id="expense-breakdown">
+        <p style="color:#999;font-size:0.88rem;">No expenses logged yet.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ PROPERTIES ═══════════════════════════════════ -->
+<div id="page-properties" class="page">
+  <div class="section-header">
+    <div><h2>Properties</h2><p>Manage your rental property portfolio</p></div>
+    <button class="btn btn-moss no-print" onclick="showModal('prop-modal')">+ Add Property</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 Instructions:</strong>
+    <ul>
+      <li>Enter each rental property you own or manage.</li>
+      <li><strong>Purchase Price</strong> is used to calculate depreciation (residential: 27.5 yrs; commercial: 39 yrs).</li>
+      <li><strong>Land Value</strong> is NOT depreciable — estimate 10–25% of purchase price for typical residential.</li>
+      <li><strong>In-Service Date</strong> is the date the property was first available for rent (triggers depreciation).</li>
+      <li>Track <strong>refurbishment costs</strong> separately under the Refurbishment tab — major improvements add to your depreciable basis.</li>
+    </ul>
+  </div>
+
+  <div id="properties-table-wrap">
+    <div class="card">
+      <p style="text-align:center;color:#999;padding:2rem;">No properties added yet. Click "Add Property" to begin.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ INCOME ═══════════════════════════════════ -->
+<div id="page-income" class="page">
+  <div class="section-header">
+    <div><h2>Rental Income</h2><p>Log all rental and ancillary income</p></div>
+    <button class="btn btn-moss no-print" onclick="showModal('income-modal')">+ Add Income</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 Instructions:</strong>
+    <ul>
+      <li>Record all income received from tenants each month.</li>
+      <li>Include <strong>late fees, pet fees, storage fees</strong> — all are taxable income.</li>
+      <li><strong>Security deposits</strong> are NOT income when received (only if forfeited/applied to damages).</li>
+      <li>Keep receipts and bank statements. The IRS requires documentation for all income reported on Schedule E.</li>
+      <li>If you received advance rent (paid before the period it covers), it is taxable in the year received.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="table-wrapper">
+      <table id="income-table">
+        <thead><tr><th>Date</th><th>Property</th><th>Type</th><th>Amount</th><th>Tenant / Note</th><th class="no-print">Action</th></tr></thead>
+        <tbody id="income-tbody"><tr><td colspan="6" style="text-align:center;color:#999;padding:2rem;">No income logged yet.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="tax-line mt-2" style="font-weight:700;font-size:1rem;">
+      <span>Total Income Logged:</span>
+      <span class="monospace" id="income-total">$0.00</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ EXPENSES ═══════════════════════════════════ -->
+<div id="page-expenses" class="page">
+  <div class="section-header">
+    <div><h2>Operating Expenses</h2><p>Deductible costs for Schedule E</p></div>
+    <button class="btn btn-moss no-print" onclick="showModal('expense-modal')">+ Add Expense</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 Instructions — IRS Schedule E Deductible Expenses:</strong>
+    <ul>
+      <li><strong>Repairs vs. Improvements:</strong> Repairs (fix a leak, patch drywall) are deductible immediately. Improvements that add value or extend useful life must be capitalized and depreciated — log those under <em>Refurbishment</em>.</li>
+      <li><strong>Mortgage interest</strong> is deductible; principal payments are NOT.</li>
+      <li><strong>Property management fees, insurance, property taxes, utilities, advertising</strong> — all deductible.</li>
+      <li><strong>Home office / vehicle mileage</strong> for rental management may be deductible — keep a mileage log.</li>
+      <li>Keep all receipts. The IRS recommends records for 3–7 years.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="table-wrapper">
+      <table id="expense-table">
+        <thead><tr><th>Date</th><th>Property</th><th>Category</th><th>Amount</th><th>Description</th><th class="no-print">Action</th></tr></thead>
+        <tbody id="expense-tbody"><tr><td colspan="6" style="text-align:center;color:#999;padding:2rem;">No expenses logged yet.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="tax-line mt-2" style="font-weight:700;font-size:1rem;">
+      <span>Total Expenses Logged:</span>
+      <span class="monospace" id="expense-total">$0.00</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ REFURBISHMENT ═══════════════════════════════════ -->
+<div id="page-refurb" class="page">
+  <div class="section-header">
+    <div><h2>Refurbishment & Capital Improvements</h2><p>Track property upgrades and add to depreciable basis</p></div>
+    <button class="btn btn-moss no-print" onclick="showModal('refurb-modal')">+ Add Project</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 Instructions — Capital Improvements vs. Repairs:</strong>
+    <ul>
+      <li><strong>Capital Improvements</strong> (must be depreciated): new roof, HVAC system, kitchen remodel, addition, new flooring throughout — anything that materially adds value, extends life, or adapts property to new use.</li>
+      <li><strong>Safe Harbor de minimis rule (IRS):</strong> Items costing $2,500 or less per invoice may be deducted immediately if you have an applicable financial statement, or $2,500 otherwise (Rev. Proc. 2015-20).</li>
+      <li><strong>Routine maintenance</strong> (repairs): repainting, fixing broken fixtures, replacing a single appliance under $2,500 — deduct on Schedule E.</li>
+      <li>Capital improvements <em>add to your property's cost basis</em>, which increases depreciation deductions over time and reduces capital gains when you sell.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="table-wrapper">
+      <table id="refurb-table">
+        <thead><tr><th>Property</th><th>Project</th><th>Start Date</th><th>Cost</th><th>Type</th><th>Status</th><th class="no-print">Action</th></tr></thead>
+        <tbody id="refurb-tbody"><tr><td colspan="7" style="text-align:center;color:#999;padding:2rem;">No refurbishment projects logged yet.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="flex-end mt-2">
+      <div style="font-size:0.9rem;color:#555;">
+        Total Capital Improvements: <span class="monospace" id="refurb-capital-total" style="font-weight:700;color:var(--oak)">$0.00</span> &nbsp;|&nbsp;
+        Immediate Deductions: <span class="monospace" id="refurb-repair-total" style="font-weight:700;color:var(--moss)">$0.00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ DEPRECIATION ═══════════════════════════════════ -->
+<div id="page-depreciation" class="page">
+  <div class="section-header">
+    <div><h2>Depreciation Schedule</h2><p>MACRS depreciation for rental properties (Form 4562)</p></div>
+    <button class="btn btn-outline no-print" style="color:var(--oak);border-color:var(--bark);" onclick="calcDepreciation()">🔄 Recalculate</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 How Depreciation Works for Rental LLCs:</strong>
+    <ul>
+      <li><strong>Residential rental property</strong>: Depreciated over <strong>27.5 years</strong> using the straight-line MACRS method (GDS). Reported on Schedule E / Form 4562.</li>
+      <li><strong>Commercial property</strong>: Depreciated over <strong>39 years</strong>.</li>
+      <li><strong>Depreciable basis</strong> = Purchase price − Land value + Capital improvements. Land is NEVER depreciated.</li>
+      <li><strong>Mid-month convention</strong>: In the first and last year, you only get a half-month's depreciation for the month placed in service.</li>
+      <li><strong>Bonus Depreciation / Section 179</strong>: May apply to personal property (appliances, carpeting) placed in service — consult your CPA for current-year rules.</li>
+      <li>Depreciation recapture (25% tax rate) applies when you sell — track it carefully.</li>
+    </ul>
+  </div>
+
+  <div id="depreciation-content">
+    <div class="card">
+      <p style="text-align:center;color:#999;padding:2rem;">Add properties first, then click Recalculate to generate depreciation schedules.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ TAX ESTIMATOR ═══════════════════════════════════ -->
+<div id="page-taxes" class="page">
+  <div class="section-header">
+    <div><h2>Tax Estimator</h2><p>Federal & State estimated tax liability</p></div>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 How Rental LLC Taxes Work:</strong>
+    <ul>
+      <li>A <strong>single-member LLC</strong> is a disregarded entity — rental income flows to your personal return (Schedule E, Form 1040). The LLC itself pays no federal income tax.</li>
+      <li>A <strong>multi-member LLC</strong> files Form 1065 and issues K-1s to each member.</li>
+      <li><strong>Rental income is generally NOT subject to self-employment tax</strong> (unlike active business income) — a key tax advantage.</li>
+      <li><strong>Passive Activity Loss (PAL) rules</strong>: Rental losses can offset rental income. If your Adjusted Gross Income is under $100,000 and you actively participate, you can deduct up to $25,000 of rental losses against other income.</li>
+      <li><strong>Quarterly estimated taxes</strong>: If you expect to owe $1,000+ in federal tax, pay quarterly (Apr 15, Jun 15, Sep 15, Jan 15).</li>
+      <li>This tool provides <em>estimates only</em>. Consult a CPA for your actual tax return.</li>
+    </ul>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>LLC & Owner Information</h3>
+      <div class="form-group">
+        <label>LLC Structure</label>
+        <select id="llc-type" onchange="calcTaxes()">
+          <option value="smllc">Single-Member LLC (Schedule E)</option>
+          <option value="mmllc">Multi-Member LLC (Form 1065)</option>
+          <option value="scorp">S-Corp Election</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Filing Status (Owner)</label>
+        <select id="filing-status" onchange="calcTaxes()">
+          <option value="single">Single</option>
+          <option value="mfj">Married Filing Jointly</option>
+          <option value="mfs">Married Filing Separately</option>
+          <option value="hoh">Head of Household</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Other Taxable Income (wages, etc.) $</label>
+        <input type="number" id="other-income" value="0" min="0" oninput="calcTaxes()" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label>State of Operation
+          <span class="tooltip-icon" data-tip="Select your primary state for state income tax calculation. Each state has different rules for rental income.">?</span>
+        </label>
+        <select id="state-select" onchange="calcTaxes()">
+          <option value="none">No State Income Tax</option>
+          <option value="AL">Alabama (5%)</option>
+          <option value="AZ">Arizona (2.5%)</option>
+          <option value="AR">Arkansas (4.4%)</option>
+          <option value="CA">California (up to 13.3%)</option>
+          <option value="CO">Colorado (4.4%)</option>
+          <option value="CT">Connecticut (up to 6.99%)</option>
+          <option value="DE">Delaware (up to 6.6%)</option>
+          <option value="GA">Georgia (5.49%)</option>
+          <option value="HI">Hawaii (up to 11%)</option>
+          <option value="ID">Idaho (5.8%)</option>
+          <option value="IL">Illinois (4.95%)</option>
+          <option value="IN">Indiana (3.05%)</option>
+          <option value="IA">Iowa (up to 6%)</option>
+          <option value="KS">Kansas (up to 5.7%)</option>
+          <option value="KY">Kentucky (4%)</option>
+          <option value="LA">Louisiana (up to 4.25%)</option>
+          <option value="ME">Maine (up to 7.15%)</option>
+          <option value="MD">Maryland (up to 5.75%)</option>
+          <option value="MA">Massachusetts (5%)</option>
+          <option value="MI">Michigan (4.25%)</option>
+          <option value="MN">Minnesota (up to 9.85%)</option>
+          <option value="MS">Mississippi (4.7%)</option>
+          <option value="MO">Missouri (up to 4.95%)</option>
+          <option value="MT">Montana (up to 6.75%)</option>
+          <option value="NE">Nebraska (up to 5.84%)</option>
+          <option value="NJ">New Jersey (up to 10.75%)</option>
+          <option value="NM">New Mexico (up to 5.9%)</option>
+          <option value="NY">New York (up to 10.9%)</option>
+          <option value="NC">North Carolina (4.5%)</option>
+          <option value="ND">North Dakota (up to 2.5%)</option>
+          <option value="OH">Ohio (up to 3.99%)</option>
+          <option value="OK">Oklahoma (4.75%)</option>
+          <option value="OR">Oregon (up to 9.9%)</option>
+          <option value="PA">Pennsylvania (3.07%)</option>
+          <option value="RI">Rhode Island (up to 5.99%)</option>
+          <option value="SC">South Carolina (up to 6.5%)</option>
+          <option value="UT">Utah (4.55%)</option>
+          <option value="VT">Vermont (up to 8.75%)</option>
+          <option value="VA">Virginia (up to 5.75%)</option>
+          <option value="WV">West Virginia (up to 6.5%)</option>
+          <option value="WI">Wisconsin (up to 7.65%)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tax Year</label>
+        <select id="tax-year-select" onchange="calcTaxes()"></select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Estimated Tax Calculation</h3>
+      <div id="tax-calc-output">
+        <p style="color:#999;font-size:0.88rem;">Configure settings and add income/expenses to see estimates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-2">
+    <h3>Quarterly Estimated Tax Payment Schedule (Federal)</h3>
+    <div class="alert alert-info">IRS requires quarterly estimated payments if you expect to owe $1,000 or more. Use Form 1040-ES.</div>
+    <div class="grid-4" id="quarterly-payments">
+      <div class="stat-card gold"><div class="stat-label">Q1 — Due Apr 15</div><div class="stat-value" id="q1-est">$0</div><div class="stat-sub">Jan 1 – Mar 31</div></div>
+      <div class="stat-card gold"><div class="stat-label">Q2 — Due Jun 15</div><div class="stat-value" id="q2-est">$0</div><div class="stat-sub">Apr 1 – May 31</div></div>
+      <div class="stat-card gold"><div class="stat-label">Q3 — Due Sep 15</div><div class="stat-value" id="q3-est">$0</div><div class="stat-sub">Jun 1 – Aug 31</div></div>
+      <div class="stat-card gold"><div class="stat-label">Q4 — Due Jan 15</div><div class="stat-value" id="q4-est">$0</div><div class="stat-sub">Sep 1 – Dec 31</div></div>
+    </div>
+  </div>
+
+  <div class="card mt-2">
+    <h3>Key Tax Forms Checklist for Rental LLC</h3>
+    <div class="grid-2">
+      <div>
+        <div class="tax-line"><span class="tl-label">📄 Schedule E (Form 1040)</span><span><span class="badge badge-green">Required</span></span></div>
+        <div class="tax-line"><span class="tl-label">📄 Form 4562 — Depreciation</span><span><span class="badge badge-green">Required</span></span></div>
+        <div class="tax-line"><span class="tl-label">📄 Form 1040-ES — Quarterly Est.</span><span><span class="badge badge-gold">If owed ≥ $1,000</span></span></div>
+        <div class="tax-line"><span class="tl-label">📄 Form 8825 (Multi-member LLC)</span><span><span id="form8825-badge" class="badge badge-blue">If Applicable</span></span></div>
+      </div>
+      <div>
+        <div class="tax-line"><span class="tl-label">📄 Form 1065 (Partnership return)</span><span><span id="form1065-badge" class="badge badge-blue">If Multi-Member</span></span></div>
+        <div class="tax-line"><span class="tl-label">📄 Schedule K-1 (Members)</span><span><span id="formk1-badge" class="badge badge-blue">If Multi-Member</span></span></div>
+        <div class="tax-line"><span class="tl-label">📄 State Return (varies)</span><span><span class="badge badge-gold">Check State</span></span></div>
+        <div class="tax-line"><span class="tl-label">📄 LLC Annual Report / Fee</span><span><span class="badge badge-gold">State Required</span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ REPORTS ═══════════════════════════════════ -->
+<div id="page-reports" class="page">
+  <div class="section-header">
+    <div><h2>Reports</h2><p>Print-ready financial summaries</p></div>
+    <button class="btn btn-gold no-print" onclick="printReport()">🖨 Print Active Report</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 Printing Tips:</strong> Select a report below, then click "Print Active Report" or use your browser's print function (Ctrl+P / ⌘+P). Reports are formatted for letter-size paper. Save as PDF for digital records. Keep copies for <strong>at least 7 years</strong> per IRS guidelines.
+  </div>
+
+  <div class="grid-2">
+    <div class="card" style="cursor:pointer;border:2px solid transparent;transition:border 0.2s;" onclick="showReport('profit-loss')" id="report-pl">
+      <h3>📊 Profit & Loss Statement</h3>
+      <p style="font-size:0.88rem;color:#666;">Income minus all operating expenses and depreciation. Useful for lenders and tax preparation.</p>
+      <div class="flex-end mt-1"><button class="btn btn-moss" onclick="event.stopPropagation();generatePL()">Generate & View</button></div>
+    </div>
+    <div class="card" style="cursor:pointer;" onclick="showReport('schedule-e')">
+      <h3>📋 Schedule E Summary</h3>
+      <p style="font-size:0.88rem;color:#666;">Property-by-property income/expense breakdown formatted for IRS Schedule E reporting.</p>
+      <div class="flex-end mt-1"><button class="btn btn-moss" onclick="event.stopPropagation();generateScheduleE()">Generate & View</button></div>
+    </div>
+    <div class="card">
+      <h3>🏠 Property Performance Report</h3>
+      <p style="font-size:0.88rem;color:#666;">Cap rate, cash-on-cash return, and NOI per property.</p>
+      <div class="flex-end mt-1"><button class="btn btn-moss" onclick="generatePropertyReport()">Generate & View</button></div>
+    </div>
+    <div class="card">
+      <h3>🔨 Refurbishment Cost Report</h3>
+      <p style="font-size:0.88rem;color:#666;">All capital improvements and repairs by property, with basis adjustment summary.</p>
+      <div class="flex-end mt-1"><button class="btn btn-moss" onclick="generateRefurbReport()">Generate & View</button></div>
+    </div>
+  </div>
+
+  <div id="report-output" class="card mt-2" style="display:none;">
+    <div id="report-content"></div>
+    <div class="flex-end mt-2 no-print">
+      <button class="btn btn-gold" onclick="printReport()">🖨 Print This Report</button>
+      <button class="btn btn-outline" style="color:#333;border-color:#ccc;" onclick="document.getElementById('report-output').style.display='none'">✕ Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ LLC SETUP ═══════════════════════════════════ -->
+<div id="page-setup" class="page">
+  <div class="section-header">
+    <div><h2>LLC & Company Setup</h2><p>Business information and compliance checklist</p></div>
+    <button class="btn btn-moss no-print" onclick="saveSetup()">💾 Save Setup</button>
+  </div>
+
+  <div class="instruction-box">
+    <strong>📌 LLC Setup Requirements for Rental Property Companies:</strong>
+    <ul>
+      <li><strong>EIN (Employer Identification Number):</strong> Required for multi-member LLCs; recommended for single-member LLCs. Apply free at IRS.gov.</li>
+      <li><strong>Separate bank account:</strong> Always keep LLC finances 100% separate from personal funds. Commingling can pierce the corporate veil.</li>
+      <li><strong>Operating Agreement:</strong> Legally required in many states; always advisable. Defines ownership, profit sharing, and management.</li>
+      <li><strong>Annual Report / Franchise Tax:</strong> Most states require an annual LLC filing and fee. Due dates vary by state.</li>
+      <li><strong>Registered Agent:</strong> Required in all states — a person or company designated to receive legal documents.</li>
+    </ul>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Company Information</h3>
+      <div class="form-group"><label>LLC Legal Name</label><input type="text" id="llc-name" value="Southern Oak Realty LLC" placeholder="Southern Oak Realty LLC"></div>
+      <div class="form-group"><label>EIN (Tax ID Number)</label><input type="text" id="llc-ein" placeholder="XX-XXXXXXX"></div>
+      <div class="form-group"><label>State of Formation</label><input type="text" id="llc-state" placeholder="e.g., Georgia"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Formation Date</label><input type="date" id="llc-formed"></div>
+        <div class="form-group"><label>Fiscal Year End</label>
+          <select id="llc-fiscal">
+            <option>December 31</option><option>March 31</option><option>June 30</option><option>September 30</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Primary Address</label><input type="text" id="llc-address" placeholder="123 Main St, City, State, ZIP"></div>
+      <div class="form-group"><label>Registered Agent Name</label><input type="text" id="llc-agent" placeholder="Name or company"></div>
+      <div class="form-group"><label>Members / Owners</label><textarea id="llc-members" placeholder="List each member and their ownership percentage"></textarea></div>
+      <div class="form-group"><label>Accounting Method</label>
+        <select id="llc-accounting">
+          <option value="cash">Cash Basis (most common for small LLCs)</option>
+          <option value="accrual">Accrual Basis</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Compliance Checklist</h3>
+      <div id="compliance-list"></div>
+    </div>
+  </div>
+
+  <div class="card mt-2">
+    <h3>Important Dates & Deadlines</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead><tr><th>Deadline</th><th>Filing / Task</th><th>Form</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Jan 15</td><td>Q4 Estimated Tax Payment</td><td>1040-ES</td><td>Federal, for prior year Q4</td></tr>
+          <tr><td>Jan 31</td><td>1099-MISC / 1099-NEC to contractors</td><td>1099</td><td>If paid contractor ≥$600 in prior year</td></tr>
+          <tr><td>Mar 15</td><td>Partnership / S-Corp Return</td><td>1065 / 1120-S</td><td>Multi-member LLC; extension = Sep 15</td></tr>
+          <tr><td>Apr 15</td><td>Individual Tax Return + Q1 Est.</td><td>1040 + 1040-ES</td><td>Single-member LLC; extension = Oct 15</td></tr>
+          <tr><td>Jun 15</td><td>Q2 Estimated Tax Payment</td><td>1040-ES</td><td>Federal</td></tr>
+          <tr><td>Sep 15</td><td>Q3 Estimated Tax Payment</td><td>1040-ES</td><td>Federal</td></tr>
+          <tr><td>Varies</td><td>State Annual Report / LLC Fee</td><td>State Form</td><td>Check your state SOS website</td></tr>
+          <tr><td>Ongoing</td><td>Maintain Separate Bank Records</td><td>—</td><td>Required to protect LLC liability shield</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ MODALS ═══════════════════════════════════ -->
+<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;overflow-y:auto;" onclick="closeModal(event)">
+
+  <!-- ADD PROPERTY MODAL -->
+  <div id="prop-modal" class="card" style="max-width:580px;margin:60px auto;position:relative;">
+    <h3>Add / Edit Property</h3>
+    <input type="hidden" id="prop-edit-id">
+    <div class="form-row">
+      <div class="form-group"><label>Property Nickname / Address</label><input type="text" id="prop-name" placeholder="e.g., 412 Magnolia Drive"></div>
+      <div class="form-group"><label>Type</label>
+        <select id="prop-type">
+          <option value="residential">Residential (27.5 yr)</option>
+          <option value="commercial">Commercial (39 yr)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Purchase Price ($)</label><input type="number" id="prop-price" min="0" placeholder="0"></div>
+      <div class="form-group"><label>Land Value ($) <span class="tooltip-icon" data-tip="Not depreciable. Typically 10–25% of purchase price.">?</span></label><input type="number" id="prop-land" min="0" placeholder="0"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>In-Service Date</label><input type="date" id="prop-service-date"></div>
+      <div class="form-group"><label>Monthly Rent ($)</label><input type="number" id="prop-rent" min="0" placeholder="0"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Status</label>
+        <select id="prop-status">
+          <option value="occupied">Occupied</option>
+          <option value="vacant">Vacant</option>
+          <option value="rehab">Under Rehab</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Mortgage Balance ($)</label><input type="number" id="prop-mortgage" min="0" placeholder="0"></div>
+    </div>
+    <div class="form-group"><label>Notes</label><textarea id="prop-notes" placeholder="Tenant name, lease end date, etc."></textarea></div>
+    <div class="flex-end mt-2">
+      <button class="btn btn-outline" style="color:#333;border-color:#ccc;" onclick="document.getElementById('modal-overlay').style.display='none'">Cancel</button>
+      <button class="btn btn-moss" onclick="saveProperty()">Save Property</button>
+    </div>
+  </div>
+
+  <!-- ADD INCOME MODAL -->
+  <div id="income-modal" class="card" style="max-width:520px;margin:60px auto;position:relative;display:none;">
+    <h3>Add Income Entry</h3>
+    <input type="hidden" id="income-edit-id">
+    <div class="form-row">
+      <div class="form-group"><label>Date</label><input type="date" id="inc-date"></div>
+      <div class="form-group"><label>Property</label><select id="inc-property"></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Type</label>
+        <select id="inc-type">
+          <option>Rent Payment</option><option>Late Fee</option><option>Pet Fee</option>
+          <option>Storage Fee</option><option>Parking Fee</option><option>Deposit Forfeited</option>
+          <option>Laundry/Vending</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Amount ($)</label><input type="number" id="inc-amount" min="0" placeholder="0.00"></div>
+    </div>
+    <div class="form-group"><label>Tenant / Note</label><input type="text" id="inc-note" placeholder="Tenant name or note"></div>
+    <div class="flex-end mt-2">
+      <button class="btn btn-outline" style="color:#333;border-color:#ccc;" onclick="document.getElementById('modal-overlay').style.display='none'">Cancel</button>
+      <button class="btn btn-moss" onclick="saveIncome()">Save Income</button>
+    </div>
+  </div>
+
+  <!-- ADD EXPENSE MODAL -->
+  <div id="expense-modal" class="card" style="max-width:520px;margin:60px auto;position:relative;display:none;">
+    <h3>Add Expense Entry</h3>
+    <input type="hidden" id="exp-edit-id">
+    <div class="form-row">
+      <div class="form-group"><label>Date</label><input type="date" id="exp-date"></div>
+      <div class="form-group"><label>Property</label><select id="exp-property"></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Category</label>
+        <select id="exp-category">
+          <option>Mortgage Interest</option><option>Property Tax</option><option>Insurance</option>
+          <option>Repairs & Maintenance</option><option>Property Management</option><option>Utilities</option>
+          <option>Advertising</option><option>Legal & Professional</option><option>Travel / Mileage</option>
+          <option>HOA Fees</option><option>Landscaping</option><option>Pest Control</option>
+          <option>Supplies</option><option>Telephone / Internet</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Amount ($)</label><input type="number" id="exp-amount" min="0" placeholder="0.00"></div>
+    </div>
+    <div class="form-group"><label>Description</label><input type="text" id="exp-desc" placeholder="Brief description"></div>
+    <div class="flex-end mt-2">
+      <button class="btn btn-outline" style="color:#333;border-color:#ccc;" onclick="document.getElementById('modal-overlay').style.display='none'">Cancel</button>
+      <button class="btn btn-moss" onclick="saveExpense()">Save Expense</button>
+    </div>
+  </div>
+
+  <!-- ADD REFURB MODAL -->
+  <div id="refurb-modal" class="card" style="max-width:520px;margin:60px auto;position:relative;display:none;">
+    <h3>Add Refurbishment Project</h3>
+    <input type="hidden" id="ref-edit-id">
+    <div class="form-group"><label>Property</label><select id="ref-property"></select></div>
+    <div class="form-group"><label>Project Name</label><input type="text" id="ref-name" placeholder="e.g., Full Kitchen Remodel"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Start Date</label><input type="date" id="ref-date"></div>
+      <div class="form-group"><label>Total Cost ($)</label><input type="number" id="ref-cost" min="0" placeholder="0.00"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Type <span class="tooltip-icon" data-tip="Capital = adds value/extends life (depreciate). Repair = restores condition (deduct now).">?</span></label>
+        <select id="ref-type">
+          <option value="capital">Capital Improvement (Depreciate)</option>
+          <option value="repair">Repair / Maintenance (Deduct Now)</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Status</label>
+        <select id="ref-status">
+          <option>Planning</option><option>In Progress</option><option>Complete</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label>Notes / Contractor</label><textarea id="ref-notes" placeholder="Contractor name, scope, permit numbers..."></textarea></div>
+    <div class="flex-end mt-2">
+      <button class="btn btn-outline" style="color:#333;border-color:#ccc;" onclick="document.getElementById('modal-overlay').style.display='none'">Cancel</button>
+      <button class="btn btn-moss" onclick="saveRefurb()">Save Project</button>
+    </div>
+  </div>
+
+</div><!-- /modal-overlay -->
+
+<!-- ═══════════════════════════════════ JAVASCRIPT ═══════════════════════════════════ -->
+<script>
+// ─── STATE ───────────────────────────────────────────────
+let state = {
+  properties: [],
+  income: [],
+  expenses: [],
+  refurb: [],
+  setup: {}
+};
+let nextId = 1;
+const currentYear = new Date().getFullYear();
+
+// ─── INIT ─────────────────────────────────────────────────
+function init() {
+  loadData();
+  populateYearDropdowns();
+  buildComplianceList();
+  updateDashboard();
+  renderProperties();
+  renderIncome();
+  renderExpenses();
+  renderRefurb();
+  calcDepreciation();
+  calcTaxes();
+  document.getElementById('dash-print-date').textContent = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+}
+
+function populateYearDropdowns() {
+  const startYear = 2026;
+  const endYear = startYear + 20;
+  ['dashboard-year','tax-year-select'].forEach(id => {
+    const sel = document.getElementById(id);
+    if (!sel) return;
+    sel.innerHTML = '';
+    for (let y = startYear; y <= endYear; y++) {
+      sel.innerHTML += `<option value="${y}">${y}</option>`;
+    }
+  });
+}
+
+// ─── NAVIGATION ───────────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'taxes') calcTaxes();
+  if (name === 'depreciation') calcDepreciation();
+  if (name === 'dashboard') updateDashboard();
+}
+
+// ─── MODALS ───────────────────────────────────────────────
+function showModal(id) {
+  const overlay = document.getElementById('modal-overlay');
+  overlay.style.display = 'block';
+  overlay.querySelectorAll('.card').forEach(c => c.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  // populate property dropdowns
+  if (['income-modal','expense-modal','refurb-modal'].includes(id)) {
+    const sel = id === 'income-modal' ? 'inc-property' : id === 'expense-modal' ? 'exp-property' : 'ref-property';
+    const el = document.getElementById(sel);
+    el.innerHTML = state.properties.length ? '' : '<option value="">No properties yet</option>';
+    state.properties.forEach(p => el.innerHTML += `<option value="${p.id}">${p.name}</option>`);
+  }
+  // reset edit ids
+  ['prop-edit-id','income-edit-id','exp-edit-id','ref-edit-id'].forEach(i => { const el = document.getElementById(i); if(el) el.value=''; });
+}
+
+function closeModal(e) {
+  if (e.target.id === 'modal-overlay') document.getElementById('modal-overlay').style.display = 'none';
+}
+
+// ─── PROPERTIES ───────────────────────────────────────────
+function saveProperty() {
+  const id = document.getElementById('prop-edit-id').value || nextId++;
+  const prop = {
+    id: +id,
+    name: document.getElementById('prop-name').value || 'Unnamed Property',
+    type: document.getElementById('prop-type').value,
+    price: +document.getElementById('prop-price').value || 0,
+    land: +document.getElementById('prop-land').value || 0,
+    serviceDate: document.getElementById('prop-service-date').value,
+    rent: +document.getElementById('prop-rent').value || 0,
+    status: document.getElementById('prop-status').value,
+    mortgage: +document.getElementById('prop-mortgage').value || 0,
+    notes: document.getElementById('prop-notes').value
+  };
+  const idx = state.properties.findIndex(p => p.id === +id);
+  if (idx >= 0) state.properties[idx] = prop; else state.properties.push(prop);
+  document.getElementById('modal-overlay').style.display = 'none';
+  renderProperties(); updateDashboard(); calcDepreciation(); saveData();
+}
+
+function renderProperties() {
+  const wrap = document.getElementById('properties-table-wrap');
+  if (!state.properties.length) {
+    wrap.innerHTML = '<div class="card"><p style="text-align:center;color:#999;padding:2rem;">No properties added yet.</p></div>';
+    return;
+  }
+  let rows = state.properties.map(p => {
+    const depBasis = p.price - p.land;
+    const depYears = p.type === 'residential' ? 27.5 : 39;
+    const annualDepr = depBasis > 0 ? (depBasis / depYears).toFixed(2) : '0.00';
+    const statusBadge = {occupied:'badge-green',vacant:'badge-red',rehab:'badge-gold'}[p.status] || 'badge-blue';
+    return `<tr>
+      <td><strong>${p.name}</strong></td>
+      <td>${p.type === 'residential' ? 'Residential' : 'Commercial'}</td>
+      <td>${fmt(p.price)}</td>
+      <td>${fmt(p.land)}</td>
+      <td>${p.serviceDate || '—'}</td>
+      <td>${fmt(p.rent)}/mo</td>
+      <td>${fmt(+annualDepr)}/yr</td>
+      <td><span class="badge ${statusBadge}">${p.status}</span></td>
+      <td class="no-print">
+        <button class="btn btn-outline" style="color:var(--moss);border-color:var(--moss);padding:4px 10px;font-size:0.78rem;" onclick="editProperty(${p.id})">Edit</button>
+        <button class="btn btn-danger" style="padding:4px 10px;font-size:0.78rem;margin-left:4px;" onclick="deleteItem('properties',${p.id})">Del</button>
+      </td>
+    </tr>`;
+  }).join('');
+  wrap.innerHTML = `<div class="card"><div class="table-wrapper"><table>
+    <thead><tr><th>Property</th><th>Type</th><th>Purchase Price</th><th>Land Value</th><th>In-Service</th><th>Monthly Rent</th><th>Annual Depr.</th><th>Status</th><th class="no-print">Actions</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div></div>`;
+}
+
+function editProperty(id) {
+  const p = state.properties.find(x => x.id === id);
+  if (!p) return;
+  showModal('prop-modal');
+  document.getElementById('prop-edit-id').value = id;
+  document.getElementById('prop-name').value = p.name;
+  document.getElementById('prop-type').value = p.type;
+  document.getElementById('prop-price').value = p.price;
+  document.getElementById('prop-land').value = p.land;
+  document.getElementById('prop-service-date').value = p.serviceDate;
+  document.getElementById('prop-rent').value = p.rent;
+  document.getElementById('prop-status').value = p.status;
+  document.getElementById('prop-mortgage').value = p.mortgage;
+  document.getElementById('prop-notes').value = p.notes;
+}
+
+// ─── INCOME ───────────────────────────────────────────────
+function saveIncome() {
+  const id = +document.getElementById('income-edit-id').value || nextId++;
+  const entry = {
+    id, date: document.getElementById('inc-date').value,
+    propId: +document.getElementById('inc-property').value,
+    type: document.getElementById('inc-type').value,
+    amount: +document.getElementById('inc-amount').value || 0,
+    note: document.getElementById('inc-note').value
+  };
+  const idx = state.income.findIndex(x => x.id === id);
+  if (idx >= 0) state.income[idx] = entry; else state.income.push(entry);
+  document.getElementById('modal-overlay').style.display = 'none';
+  renderIncome(); updateDashboard(); calcTaxes(); saveData();
+}
+
+function renderIncome() {
+  const tbody = document.getElementById('income-tbody');
+  if (!state.income.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#999;padding:1.5rem;">No income logged.</td></tr>'; document.getElementById('income-total').textContent = '$0.00'; return; }
+  tbody.innerHTML = state.income.sort((a,b)=>a.date<b.date?1:-1).map(e => {
+    const prop = state.properties.find(p => p.id === e.propId);
+    return `<tr><td>${e.date || '—'}</td><td>${prop ? prop.name : '—'}</td><td>${e.type}</td><td class="monospace">${fmt(e.amount)}</td><td>${e.note}</td>
+      <td class="no-print"><button class="btn btn-danger" style="padding:3px 8px;font-size:0.75rem;" onclick="deleteItem('income',${e.id})">Del</button></td></tr>`;
+  }).join('');
+  const total = state.income.reduce((s,e) => s + e.amount, 0);
+  document.getElementById('income-total').textContent = fmt(total);
+}
+
+// ─── EXPENSES ─────────────────────────────────────────────
+function saveExpense() {
+  const id = +document.getElementById('exp-edit-id').value || nextId++;
+  const entry = {
+    id, date: document.getElementById('exp-date').value,
+    propId: +document.getElementById('exp-property').value,
+    category: document.getElementById('exp-category').value,
+    amount: +document.getElementById('exp-amount').value || 0,
+    desc: document.getElementById('exp-desc').value
+  };
+  const idx = state.expenses.findIndex(x => x.id === id);
+  if (idx >= 0) state.expenses[idx] = entry; else state.expenses.push(entry);
+  document.getElementById('modal-overlay').style.display = 'none';
+  renderExpenses(); updateDashboard(); calcTaxes(); saveData();
+}
+
+function renderExpenses() {
+  const tbody = document.getElementById('expense-tbody');
+  if (!state.expenses.length) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#999;padding:1.5rem;">No expenses logged.</td></tr>'; document.getElementById('expense-total').textContent = '$0.00'; return; }
+  tbody.innerHTML = state.expenses.sort((a,b)=>a.date<b.date?1:-1).map(e => {
+    const prop = state.properties.find(p => p.id === e.propId);
+    return `<tr><td>${e.date || '—'}</td><td>${prop ? prop.name : '—'}</td><td><span class="badge badge-blue">${e.category}</span></td><td class="monospace">${fmt(e.amount)}</td><td>${e.desc}</td>
+      <td class="no-print"><button class="btn btn-danger" style="padding:3px 8px;font-size:0.75rem;" onclick="deleteItem('expenses',${e.id})">Del</button></td></tr>`;
+  }).join('');
+  const total = state.expenses.reduce((s,e) => s + e.amount, 0);
+  document.getElementById('expense-total').textContent = fmt(total);
+}
+
+// ─── REFURB ───────────────────────────────────────────────
+function saveRefurb() {
+  const id = +document.getElementById('ref-edit-id').value || nextId++;
+  const entry = {
+    id, propId: +document.getElementById('ref-property').value,
+    name: document.getElementById('ref-name').value,
+    date: document.getElementById('ref-date').value,
+    cost: +document.getElementById('ref-cost').value || 0,
+    type: document.getElementById('ref-type').value,
+    status: document.getElementById('ref-status').value,
+    notes: document.getElementById('ref-notes').value
+  };
+  const idx = state.refurb.findIndex(x => x.id === id);
+  if (idx >= 0) state.refurb[idx] = entry; else state.refurb.push(entry);
+  document.getElementById('modal-overlay').style.display = 'none';
+  renderRefurb(); calcDepreciation(); saveData();
+}
+
+function renderRefurb() {
+  const tbody = document.getElementById('refurb-tbody');
+  if (!state.refurb.length) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#999;padding:1.5rem;">No refurbishment projects.</td></tr>'; document.getElementById('refurb-capital-total').textContent = '$0.00'; document.getElementById('refurb-repair-total').textContent = '$0.00'; return; }
+  tbody.innerHTML = state.refurb.map(r => {
+    const prop = state.properties.find(p => p.id === r.propId);
+    const typeBadge = r.type === 'capital' ? 'badge-gold' : 'badge-green';
+    const statusBadge = {Planning:'badge-blue','In Progress':'badge-gold',Complete:'badge-green'}[r.status] || 'badge-blue';
+    return `<tr><td>${prop ? prop.name : '—'}</td><td>${r.name}</td><td>${r.date || '—'}</td><td class="monospace">${fmt(r.cost)}</td>
+      <td><span class="badge ${typeBadge}">${r.type === 'capital' ? 'Capital' : 'Repair'}</span></td>
+      <td><span class="badge ${statusBadge}">${r.status}</span></td>
+      <td class="no-print"><button class="btn btn-danger" style="padding:3px 8px;font-size:0.75rem;" onclick="deleteItem('refurb',${r.id})">Del</button></td></tr>`;
+  }).join('');
+  const cap = state.refurb.filter(r=>r.type==='capital').reduce((s,r)=>s+r.cost,0);
+  const rep = state.refurb.filter(r=>r.type==='repair').reduce((s,r)=>s+r.cost,0);
+  document.getElementById('refurb-capital-total').textContent = fmt(cap);
+  document.getElementById('refurb-repair-total').textContent = fmt(rep);
+}
+
+// ─── DEPRECIATION ─────────────────────────────────────────
+function calcDepreciation() {
+  const container = document.getElementById('depreciation-content');
+  if (!state.properties.length) {
+    container.innerHTML = '<div class="card"><p style="text-align:center;color:#999;padding:2rem;">Add properties first.</p></div>';
+    return;
+  }
+  let html = '';
+  state.properties.forEach(prop => {
+    const caps = state.refurb.filter(r => r.propId === prop.id && r.type === 'capital').reduce((s,r)=>s+r.cost,0);
+    const depBasis = Math.max(0, prop.price - prop.land + caps);
+    const depYears = prop.type === 'residential' ? 27.5 : 39;
+    const annualDepr = depBasis / depYears;
+    const serviceYear = prop.serviceDate ? new Date(prop.serviceDate).getFullYear() : currentYear;
+    const yearsHeld = Math.min(currentYear - serviceYear + 1, depYears);
+    const accumDepr = annualDepr * yearsHeld;
+    const adjBasis = depBasis - accumDepr;
+    let tableRows = '';
+    const showYears = Math.min(yearsHeld + 2, +depYears);
+    for (let i = 1; i <= showYears; i++) {
+      const yr = serviceYear + i - 1;
+      const isCurrentYear = yr === currentYear;
+      tableRows += `<tr class="depr-row" ${isCurrentYear ? 'style="background:#fffbea;font-weight:600;"' : ''}>
+        <td>${yr}</td><td>${fmt(annualDepr)}</td><td>${fmt(annualDepr * i)}</td><td>${fmt(depBasis - annualDepr * i)}</td>
+        ${isCurrentYear ? '<td><span class="badge badge-gold">Current Year</span></td>' : '<td></td>'}
+      </tr>`;
+    }
+    html += `<div class="card">
+      <h3>🏠 ${prop.name}</h3>
+      <div class="grid-4" style="margin-bottom:1rem;">
+        <div><div class="stat-label">Purchase Price</div><div class="monospace" style="font-size:1.1rem;">${fmt(prop.price)}</div></div>
+        <div><div class="stat-label">Land (Non-Depr.)</div><div class="monospace" style="font-size:1.1rem;color:var(--rust);">-${fmt(prop.land)}</div></div>
+        <div><div class="stat-label">Capital Improvements</div><div class="monospace" style="font-size:1.1rem;color:var(--moss);">+${fmt(caps)}</div></div>
+        <div><div class="stat-label">Depreciable Basis</div><div class="monospace" style="font-size:1.1rem;font-weight:700;">${fmt(depBasis)}</div></div>
+      </div>
+      <div class="grid-3" style="margin-bottom:1rem;">
+        <div><div class="stat-label">Recovery Period</div><div>${depYears} years (MACRS)</div></div>
+        <div><div class="stat-label">Annual Depreciation</div><div class="monospace">${fmt(annualDepr)}</div></div>
+        <div><div class="stat-label">Accumulated (${yearsHeld} yrs)</div><div class="monospace">${fmt(accumDepr)}</div></div>
+      </div>
+      <div class="table-wrapper"><table>
+        <thead><tr><th>Year</th><th>Annual Deduction</th><th>Accum. Depreciation</th><th>Adjusted Basis</th><th>Notes</th></tr></thead>
+        <tbody>${tableRows}</tbody>
+      </table></div>
+      <p style="font-size:0.78rem;color:#999;margin-top:0.75rem;">* This schedule uses straight-line MACRS. Mid-month convention applies to first & last year. Consult Form 4562 and your CPA.</p>
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+// ─── DASHBOARD ────────────────────────────────────────────
+function updateDashboard() {
+  const year = document.getElementById('dashboard-year') ? +document.getElementById('dashboard-year').value : currentYear;
+  document.getElementById('dash-year-label').textContent = `Tax Year ${year} Overview`;
+  const yearIncome = state.income.filter(e => e.date && e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+  const yearExpenses = state.expenses.filter(e => e.date && e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+  const totalDepr = state.properties.reduce((s,p) => {
+    const caps = state.refurb.filter(r=>r.propId===p.id&&r.type==='capital').reduce((t,r)=>t+r.cost,0);
+    const basis = Math.max(0, p.price - p.land + caps);
+    return s + basis / (p.type==='residential' ? 27.5 : 39);
+  }, 0);
+  const noi = yearIncome - yearExpenses;
+  const taxableNet = Math.max(0, noi - totalDepr);
+  const estTax = taxableNet * 0.22 + taxableNet * 0.05; // rough federal + state
+  document.getElementById('stat-gross').textContent = fmt(yearIncome);
+  document.getElementById('stat-exp').textContent = fmt(yearExpenses);
+  document.getElementById('stat-noi').textContent = fmt(noi);
+  document.getElementById('stat-tax').textContent = fmt(estTax);
+  const total = state.properties.length;
+  const occupied = state.properties.filter(p=>p.status==='occupied').length;
+  const vac = total ? Math.round((total - occupied) / total * 100) : 0;
+  document.getElementById('d-props').textContent = total;
+  document.getElementById('d-occ').textContent = occupied;
+  document.getElementById('d-vac').textContent = vac + '%';
+  document.getElementById('d-depr').textContent = fmt(totalDepr);
+  document.getElementById('d-taxable').textContent = fmt(taxableNet);
+  // expense breakdown
+  const cats = {};
+  state.expenses.filter(e => e.date && e.date.startsWith(year)).forEach(e => { cats[e.category] = (cats[e.category]||0) + e.amount; });
+  const sorted = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
+  const maxVal = sorted[0] ? sorted[0][1] : 1;
+  document.getElementById('expense-breakdown').innerHTML = sorted.length ? sorted.map(([cat,amt]) =>
+    `<div style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;font-size:0.82rem;"><span>${cat}</span><span class="monospace">${fmt(amt)}</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${(amt/maxVal*100).toFixed(1)}%"></div></div></div>`
+  ).join('') : '<p style="color:#999;font-size:0.88rem;">No expenses for selected year.</p>';
+}
+
+// ─── TAX CALCULATOR ───────────────────────────────────────
+const STATE_RATES = {
+  none:0, AL:0.05, AZ:0.025, AR:0.044, CA:0.093, CO:0.044, CT:0.05, DE:0.055,
+  GA:0.0549, HI:0.08, ID:0.058, IL:0.0495, IN:0.0305, IA:0.05, KS:0.053,
+  KY:0.04, LA:0.035, ME:0.065, MD:0.05, MA:0.05, MI:0.0425, MN:0.07,
+  MS:0.047, MO:0.044, MT:0.059, NE:0.051, NJ:0.065, NM:0.049, NY:0.0685,
+  NC:0.045, ND:0.02, OH:0.0325, OK:0.0475, OR:0.09, PA:0.0307, RI:0.0475,
+  SC:0.05, UT:0.0455, VT:0.075, VA:0.0575, WV:0.055, WI:0.065
+};
+
+const FED_BRACKETS_MFJ_2024 = [
+  [23200,0.10],[94300,0.12],[201050,0.22],[383900,0.24],[487450,0.32],[731200,0.35],[Infinity,0.37]
+];
+const FED_BRACKETS_SINGLE_2024 = [
+  [11600,0.10],[47150,0.12],[100525,0.22],[191950,0.24],[243725,0.32],[609350,0.35],[Infinity,0.37]
+];
+
+function fedTax(income, status) {
+  if (income <= 0) return 0;
+  const brackets = (status === 'mfj') ? FED_BRACKETS_MFJ_2024 : FED_BRACKETS_SINGLE_2024;
+  let tax = 0, prev = 0;
+  for (const [limit, rate] of brackets) {
+    if (income <= limit) { tax += (income - prev) * rate; break; }
+    tax += (limit - prev) * rate;
+    prev = limit;
+  }
+  return tax;
+}
+
+function calcTaxes() {
+  const year = document.getElementById('tax-year-select') ? +document.getElementById('tax-year-select').value : currentYear;
+  const status = document.getElementById('filing-status') ? document.getElementById('filing-status').value : 'single';
+  const stateCode = document.getElementById('state-select') ? document.getElementById('state-select').value : 'none';
+  const otherIncome = +document.getElementById('other-income').value || 0;
+  const yearIncome = state.income.filter(e => e.date && e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+  const yearExpenses = state.expenses.filter(e => e.date && e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+  const totalDepr = state.properties.reduce((s,p) => {
+    const caps = state.refurb.filter(r=>r.propId===p.id&&r.type==='capital').reduce((t,r)=>t+r.cost,0);
+    const basis = Math.max(0, p.price - p.land + caps);
+    return s + basis / (p.type==='residential' ? 27.5 : 39);
+  }, 0);
+  const rentalNOI = yearIncome - yearExpenses;
+  const rentalTaxableIncome = rentalNOI - totalDepr;
+  const totalIncome = Math.max(0, otherIncome + rentalTaxableIncome);
+  const stdDeduction = status === 'mfj' ? 29200 : status === 'hoh' ? 21900 : 14600;
+  const taxableIncome = Math.max(0, totalIncome - stdDeduction);
+  const fedTaxAmt = fedTax(taxableIncome, status);
+  const stateRate = STATE_RATES[stateCode] || 0;
+  const stateTaxAmt = totalIncome * stateRate;
+  const totalTax = fedTaxAmt + stateTaxAmt;
+  const qtrAmt = Math.max(0, totalTax / 4);
+  ['q1-est','q2-est','q3-est','q4-est'].forEach(id => { document.getElementById(id).textContent = fmt(qtrAmt); });
+  const output = document.getElementById('tax-calc-output');
+  const loss = rentalNOI < 0;
+  output.innerHTML = `
+    <div class="tax-line"><span class="tl-label">Gross Rental Income</span><span class="tl-value">${fmt(yearIncome)}</span></div>
+    <div class="tax-line"><span class="tl-label">Operating Expenses</span><span class="tl-value" style="color:var(--rust);">-${fmt(yearExpenses)}</span></div>
+    <div class="tax-line"><span class="tl-label">Net Operating Income</span><span class="tl-value">${fmt(rentalNOI)}</span></div>
+    <div class="tax-line"><span class="tl-label">Depreciation Deduction</span><span class="tl-value" style="color:var(--rust);">-${fmt(totalDepr)}</span></div>
+    <div class="tax-line"><span class="tl-label">Rental Taxable Income</span><span class="tl-value" style="color:${rentalTaxableIncome<0?'var(--moss)':'var(--oak)'};">${fmt(rentalTaxableIncome)}</span></div>
+    <div class="tax-line"><span class="tl-label">Other Income</span><span class="tl-value">${fmt(otherIncome)}</span></div>
+    <div class="tax-line"><span class="tl-label">Standard Deduction</span><span class="tl-value" style="color:var(--rust);">-${fmt(stdDeduction)}</span></div>
+    <div class="tax-line"><span class="tl-label">Federal Taxable Income</span><span class="tl-value">${fmt(taxableIncome)}</span></div>
+    <hr class="divider">
+    <div class="tax-line"><span class="tl-label">Federal Income Tax (est.)</span><span class="tl-value">${fmt(fedTaxAmt)}</span></div>
+    <div class="tax-line"><span class="tl-label">State Tax — ${stateCode === 'none' ? 'N/A' : stateCode} (${(stateRate*100).toFixed(2)}%)</span><span class="tl-value">${fmt(stateTaxAmt)}</span></div>
+    <div class="tax-total"><span>TOTAL ESTIMATED TAX</span><span>${fmt(totalTax)}</span></div>
+    ${loss ? '<div class="alert alert-success" style="margin-top:1rem;font-size:0.83rem;">⚡ Potential passive activity loss detected — you may be able to deduct rental losses against other income (subject to PAL rules and AGI limits). Consult a CPA.</div>' : ''}
+    <p style="font-size:0.72rem;color:#999;margin-top:0.75rem;">Estimates use standard deduction and approximate brackets. Self-employment tax not included (rental income is typically exempt). Consult a licensed tax professional.</p>
+  `;
+  document.getElementById('stat-tax').textContent = fmt(totalTax);
+}
+
+// ─── REPORTS ──────────────────────────────────────────────
+function generatePL() {
+  const year = currentYear;
+  const income = state.income.filter(e=>e.date&&e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+  const expenses = state.expenses.filter(e=>e.date&&e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+  const depr = state.properties.reduce((s,p) => {
+    const caps = state.refurb.filter(r=>r.propId===p.id&&r.type==='capital').reduce((t,r)=>t+r.cost,0);
+    const basis = Math.max(0, p.price - p.land + caps);
+    return s + basis / (p.type==='residential' ? 27.5 : 39);
+  }, 0);
+  const noi = income - expenses;
+  const netIncome = noi - depr;
+  const cats = {};
+  state.expenses.filter(e=>e.date&&e.date.startsWith(year)).forEach(e=>{ cats[e.category]=(cats[e.category]||0)+e.amount; });
+  const expRows = Object.entries(cats).map(([c,a])=>`<div class="tax-line"><span class="tl-label">&nbsp;&nbsp;${c}</span><span class="tl-value">${fmt(a)}</span></div>`).join('');
+  const llcName = document.getElementById('llc-name') ? document.getElementById('llc-name').value || 'Southern Oak Realty LLC' : 'Southern Oak Realty LLC';
+  const content = `
+    <div style="text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--oak);">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--oak)">${llcName}</h2>
+      <p style="color:#666;font-size:0.9rem;">Profit & Loss Statement — Tax Year ${year}</p>
+      <p style="color:#999;font-size:0.8rem;">Generated: ${new Date().toLocaleDateString()}</p>
+    </div>
+    <h4 style="color:var(--moss);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">REVENUE</h4>
+    <div class="tax-line"><span class="tl-label">&nbsp;&nbsp;Total Rental Income</span><span class="tl-value">${fmt(income)}</span></div>
+    <div class="tax-line" style="font-weight:700"><span>Total Revenue</span><span class="tl-value">${fmt(income)}</span></div>
+    <h4 style="color:var(--rust);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;margin:1rem 0 0.5rem;">OPERATING EXPENSES</h4>
+    ${expRows}
+    <div class="tax-line" style="font-weight:700"><span>Total Expenses</span><span class="tl-value">${fmt(expenses)}</span></div>
+    <div class="tax-line" style="font-weight:700"><span>Net Operating Income (NOI)</span><span class="tl-value" style="color:${noi>=0?'var(--moss)':'var(--rust)'}">${fmt(noi)}</span></div>
+    <h4 style="color:#888;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;margin:1rem 0 0.5rem;">NON-CASH DEDUCTIONS</h4>
+    <div class="tax-line"><span class="tl-label">&nbsp;&nbsp;Depreciation (MACRS)</span><span class="tl-value" style="color:var(--rust);">-${fmt(depr)}</span></div>
+    <div class="tax-total" style="margin-top:1rem;"><span>NET INCOME (Before Tax)</span><span>${fmt(netIncome)}</span></div>
+    <p style="font-size:0.75rem;color:#999;margin-top:1rem;">This statement is for informational purposes. Consult your CPA before filing.</p>`;
+  document.getElementById('report-content').innerHTML = content;
+  document.getElementById('report-output').style.display = 'block';
+  document.getElementById('report-output').scrollIntoView({behavior:'smooth'});
+}
+
+function generateScheduleE() {
+  const year = currentYear;
+  const llcName = document.getElementById('llc-name') ? document.getElementById('llc-name').value || 'Southern Oak Realty LLC' : 'Southern Oak Realty LLC';
+  let propRows = '';
+  state.properties.forEach(prop => {
+    const inc = state.income.filter(e=>e.propId===prop.id&&e.date&&e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+    const exp = state.expenses.filter(e=>e.propId===prop.id&&e.date&&e.date.startsWith(year)).reduce((s,e)=>s+e.amount,0);
+    const caps = state.refurb.filter(r=>r.propId===prop.id&&r.type==='capital').reduce((t,r)=>t+r.cost,0);
+    const basis = Math.max(0, prop.price - prop.land + caps);
+    const depr = basis / (prop.type==='residential' ? 27.5 : 39);
+    const net = inc - exp - depr;
+    propRows += `<tr><td>${prop.name}</td><td class="monospace">${fmt(inc)}</td><td class="monospace">${fmt(exp)}</td><td class="monospace">${fmt(depr)}</td><td class="monospace" style="font-weight:700;color:${net>=0?'var(--moss)':'var(--rust)'}">${fmt(net)}</td></tr>`;
+  });
+  const content = `
+    <div style="text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--oak);">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--oak)">${llcName}</h2>
+      <p style="color:#666;">Schedule E Summary — Tax Year ${year}</p>
+    </div>
+    <div class="alert alert-info" style="margin-bottom:1rem;">This summary supports IRS Schedule E (Supplemental Income and Loss). Transfer totals to your Form 1040, Schedule E, Part I.</div>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Property Address</th><th>Rents Received</th><th>Total Expenses</th><th>Depreciation</th><th>Net Income/Loss</th></tr></thead>
+      <tbody>${propRows || '<tr><td colspan="5" style="text-align:center;color:#999;padding:1rem;">No properties added.</td></tr>'}</tbody>
+    </table></div>
+    <p style="font-size:0.75rem;color:#999;margin-top:1rem;">Depreciation figures should be verified against Form 4562. Passive activity loss rules may limit deductible losses. Consult your CPA.</p>`;
+  document.getElementById('report-content').innerHTML = content;
+  document.getElementById('report-output').style.display = 'block';
+  document.getElementById('report-output').scrollIntoView({behavior:'smooth'});
+}
+
+function generatePropertyReport() {
+  const llcName = document.getElementById('llc-name') ? document.getElementById('llc-name').value || 'Southern Oak Realty LLC' : 'Southern Oak Realty LLC';
+  let rows = state.properties.map(p => {
+    const inc = state.income.filter(e=>e.propId===p.id).reduce((s,e)=>s+e.amount,0);
+    const exp = state.expenses.filter(e=>e.propId===p.id).reduce((s,e)=>s+e.amount,0);
+    const noi = inc - exp;
+    const capRate = p.price > 0 ? (noi / p.price * 100).toFixed(2) : '0.00';
+    return `<tr><td>${p.name}</td><td class="monospace">${fmt(p.price)}</td><td class="monospace">${fmt(inc)}</td><td class="monospace">${fmt(exp)}</td><td class="monospace">${fmt(noi)}</td><td class="monospace">${capRate}%</td><td><span class="badge ${p.status==='occupied'?'badge-green':p.status==='vacant'?'badge-red':'badge-gold'}">${p.status}</span></td></tr>`;
+  }).join('');
+  const content = `
+    <div style="text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--oak);">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--oak)">${llcName}</h2>
+      <p style="color:#666;">Property Performance Report</p>
+    </div>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Property</th><th>Purchase Price</th><th>Total Income</th><th>Total Expenses</th><th>NOI</th><th>Cap Rate</th><th>Status</th></tr></thead>
+      <tbody>${rows||'<tr><td colspan="7" style="text-align:center;color:#999;padding:1rem;">No properties.</td></tr>'}</tbody>
+    </table></div>
+    <p style="font-size:0.75rem;color:#999;margin-top:1rem;">Cap Rate = NOI ÷ Purchase Price. All-time figures (not year-specific). Consult a real estate professional for valuation.</p>`;
+  document.getElementById('report-content').innerHTML = content;
+  document.getElementById('report-output').style.display = 'block';
+  document.getElementById('report-output').scrollIntoView({behavior:'smooth'});
+}
+
+function generateRefurbReport() {
+  const llcName = document.getElementById('llc-name') ? document.getElementById('llc-name').value || 'Southern Oak Realty LLC' : 'Southern Oak Realty LLC';
+  let rows = state.refurb.map(r => {
+    const prop = state.properties.find(p=>p.id===r.propId);
+    return `<tr><td>${prop?prop.name:'—'}</td><td>${r.name}</td><td>${r.date||'—'}</td><td class="monospace">${fmt(r.cost)}</td><td><span class="badge ${r.type==='capital'?'badge-gold':'badge-green'}">${r.type==='capital'?'Capital':'Repair'}</span></td><td>${r.status}</td></tr>`;
+  }).join('');
+  const cap = state.refurb.filter(r=>r.type==='capital').reduce((s,r)=>s+r.cost,0);
+  const rep = state.refurb.filter(r=>r.type==='repair').reduce((s,r)=>s+r.cost,0);
+  const content = `
+    <div style="text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--oak);">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--oak)">${llcName}</h2>
+      <p style="color:#666;">Refurbishment & Capital Improvement Report</p>
+    </div>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Property</th><th>Project</th><th>Date</th><th>Cost</th><th>Type</th><th>Status</th></tr></thead>
+      <tbody>${rows||'<tr><td colspan="6" style="text-align:center;color:#999;padding:1rem;">No projects logged.</td></tr>'}</tbody>
+    </table></div>
+    <div style="margin-top:1rem;display:flex;gap:2rem;">
+      <div><strong>Capital Improvements (Add to Basis):</strong> <span class="monospace">${fmt(cap)}</span></div>
+      <div><strong>Immediate Deductions (Repairs):</strong> <span class="monospace">${fmt(rep)}</span></div>
+    </div>`;
+  document.getElementById('report-content').innerHTML = content;
+  document.getElementById('report-output').style.display = 'block';
+  document.getElementById('report-output').scrollIntoView({behavior:'smooth'});
+}
+
+// ─── LLC SETUP ────────────────────────────────────────────
+function buildComplianceList() {
+  const items = [
+    ['EIN obtained from IRS.gov','important'],
+    ['Separate LLC bank account opened','important'],
+    ['Operating Agreement drafted & signed','important'],
+    ['Articles of Organization filed with state','important'],
+    ['Registered Agent designated','important'],
+    ['Annual Report / Franchise Tax filed','important'],
+    ['Landlord Insurance policy active','important'],
+    ['Lease agreements in writing for all tenants','important'],
+    ['Security deposit held in separate escrow account',''],
+    ['Tenant move-in/move-out condition reports',''],
+    ['Rental income reported on Schedule E annually','important'],
+    ['Depreciation tracked on Form 4562','important'],
+    ['Quarterly estimated taxes paid (if applicable)',''],
+    ['1099s issued to contractors paid ≥$600',''],
+    ['Records retained for 7 years',''],
+  ];
+  document.getElementById('compliance-list').innerHTML = items.map(([text, cls]) =>
+    `<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f0ede5;font-size:0.88rem;">
+      <input type="checkbox" style="width:16px;height:16px;accent-color:var(--moss);cursor:pointer;">
+      <span ${cls==='important'?'style="font-weight:600;"':''}>${text}</span>
+      ${cls==='important'?'<span class="badge badge-red" style="margin-left:auto;font-size:0.65rem;">Required</span>':''}
+    </div>`
+  ).join('');
+}
+
+function saveSetup() {
+  state.setup = {
+    name: document.getElementById('llc-name').value,
+    ein: document.getElementById('llc-ein').value,
+    state: document.getElementById('llc-state').value,
+    formed: document.getElementById('llc-formed').value,
+    fiscal: document.getElementById('llc-fiscal').value,
+    address: document.getElementById('llc-address').value,
+    agent: document.getElementById('llc-agent').value,
+    members: document.getElementById('llc-members').value,
+    accounting: document.getElementById('llc-accounting').value
+  };
+  saveData();
+  alert('Setup saved!');
+}
+
+// ─── DELETE ───────────────────────────────────────────────
+function deleteItem(type, id) {
+  if (!confirm('Delete this entry? This cannot be undone.')) return;
+  state[type] = state[type].filter(x => x.id !== id);
+  if (type === 'properties') renderProperties();
+  if (type === 'income') { renderIncome(); updateDashboard(); calcTaxes(); }
+  if (type === 'expenses') { renderExpenses(); updateDashboard(); calcTaxes(); }
+  if (type === 'refurb') { renderRefurb(); calcDepreciation(); }
+  saveData();
+}
+
+// ─── PERSISTENCE ──────────────────────────────────────────
+function saveData() {
+  try { localStorage.setItem('southernoak_data', JSON.stringify({state, nextId})); } catch(e) {}
+}
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem('southernoak_data');
+    if (raw) { const d = JSON.parse(raw); state = d.state || state; nextId = d.nextId || nextId; }
+    // restore setup fields
+    if (state.setup) {
+      ['llc-name','llc-ein','llc-state','llc-formed','llc-fiscal','llc-address','llc-agent','llc-members','llc-accounting'].forEach(id => {
+        const key = id.replace('llc-','').replace('-','');
+        const map = {'llc-name':'name','llc-ein':'ein','llc-state':'state','llc-formed':'formed','llc-fiscal':'fiscal','llc-address':'address','llc-agent':'agent','llc-members':'members','llc-accounting':'accounting'};
+        const el = document.getElementById(id);
+        if (el && state.setup[map[id]]) el.value = state.setup[map[id]];
+      });
+    }
+  } catch(e) {}
+}
+
+// ─── PRINT ────────────────────────────────────────────────
+function printReport() {
+  window.print();
+}
+
+// ─── HELPERS ──────────────────────────────────────────────
+function fmt(n) {
+  return '$' + (+n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+// ─── BOOT ─────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
